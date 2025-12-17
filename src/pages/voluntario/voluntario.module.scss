@@ -1,0 +1,189 @@
+$green-brand: #007D5C;
+$gray-text: #666;
+$white: #ffffff;
+$dark-text: #1a1a1a;
+$font-inter: 'Inter', sans-serif;
+
+.VoluntarioMain {
+  width: 100%;
+  font-family: $font-inter;
+}
+
+// === SEÇÃO HERO ===
+.Hero {
+  text-align: center;
+  padding: 4rem 1.25rem 2.5rem; // Usando rem conforme pedido
+  
+  h1 {
+    font-size: 3.5rem;
+    color: $dark-text;
+    margin-bottom: 1rem;
+    font-weight: 800;
+  }
+
+  p {
+    font-size: 1.2rem;
+    color: $gray-text;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+}
+
+// === SEÇÃO DE CARDS (Flexbox) ===
+.CardsSection {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap; // Garante a quebra sem usar Grid
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 1.25rem auto 3.75rem;
+  padding: 0 1.25rem;
+
+  .Card {
+    flex: 1 1 300px; // Flex-grow, flex-shrink e flex-basis (mínimo 300px)
+    border: 1px solid #e0e0e0;
+    border-radius: 15px;
+    padding: 3rem 1.8rem;
+    text-align: center;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    background-color: $white;
+
+    &:hover {
+      transform: translateY(-8px);
+      border-color: $green-brand;
+    }
+
+    h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: $dark-text;
+    }
+
+    p {
+      color: $gray-text;
+      line-height: 1.6;
+    }
+  }
+}
+
+// === SEÇÃO DO FORMULÁRIO ===
+.FormBg {
+  background-color: $green-brand;
+  padding: 5rem 1.25rem;
+  display: flex;
+  justify-content: center;
+}
+
+.Container {
+  width: 100%;
+  max-width: 900px;
+
+  h2 {
+    color: $white;
+    font-size: 2.5rem;
+    margin-bottom: 2.5rem;
+  }
+}
+
+.FormWrapper {
+  background: $white;
+  padding: 3rem;
+  border-radius: 20px;
+
+  .FormSection {
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+
+    label {
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      font-size: 1.2rem;
+      color: $dark-text;
+    }
+
+    // AJUSTE: Trocado Grid por Flexbox para cumprir a regra do desafio
+    .InputGroup {
+      display: flex;
+      flex-wrap: wrap; 
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+
+      input {
+        flex: 1 1 45%; // Cada input tenta ocupar metade da linha
+      }
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 1.1rem;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      background-color: #fbfbfb;
+      font-size: 1rem;
+      font-family: $font-inter;
+
+      &:focus {
+        outline: none;
+        border-color: $green-brand;
+      }
+    }
+  }
+}
+
+.BtnEnviar {
+  background-color: $green-brand;
+  color: $white;
+  border: none;
+  padding: 1.1rem 3rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  border-radius: 10px;
+  cursor: pointer;
+  width: auto; // No desktop ele não é full-width por padrão
+
+  &:hover {
+    filter: brightness(0.9);
+  }
+}
+
+// === RESPONSIVIDADE (Apenas Flexbox e Media Queries) ===
+
+@media (max-width: 768px) {
+  .Hero {
+    h1 { font-size: 2.2rem; }
+  }
+
+  .CardsSection {
+    flex-direction: column;
+    align-items: center;
+
+    .Card {
+      width: 100%;
+      max-width: 100%;
+    }
+  }
+
+  .Container h2 {
+    font-size: 1.8rem;
+    text-align: center;
+  }
+
+  .FormWrapper {
+    padding: 2rem 1rem;
+
+    .FormSection {
+      .InputGroup {
+        flex-direction: column; 
+        
+        input {
+          flex: 1 1 100%;
+        }
+      }
+    }
+  }
+
+  .BtnEnviar {
+    width: 100%; 
+  }
+}

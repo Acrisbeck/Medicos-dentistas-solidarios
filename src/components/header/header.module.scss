@@ -1,0 +1,116 @@
+$color-green: #007D5C;
+$color-white: #ffffff;
+$color-dark: #1a1a1a;
+$font-inter: 'Inter', sans-serif;
+
+.Header {
+  width: 100%;
+  background-color: $color-white;
+  border-bottom: 0.1rem solid #eeeeee;
+  font-family: $font-inter;
+}
+
+.Container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 75rem;
+  margin: 0 auto;
+  padding: 1rem 1.5rem;
+  flex-wrap: wrap; // Permite que o menu mobile desça para a linha de baixo
+}
+
+.LogoBox {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  text-decoration: none;
+  
+  img { 
+    width: 2rem; 
+    height: auto;
+  }
+
+  span { 
+    font-weight: 700; 
+    color: $color-dark;
+    font-size: 1.1rem;
+  }
+}
+
+.Nav {
+  display: flex;
+  
+  ul {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+
+    a {
+      text-decoration: none;
+      color: $color-dark;
+      font-weight: 500;
+      font-size: 1rem;
+    }
+  }
+}
+
+.BtnVoluntario {
+  background-color: $color-green !important; // Garante a cor do Figma
+  color: $color-white !important;
+  padding: 0.7rem 1.5rem;
+  border-radius: 0.5rem;
+  display: inline-block;
+}
+
+/* BOTÃO HAMBÚRGUER */
+.Hamburger {
+  display: none; // Escondido no Desktop
+  flex-direction: column;
+  justify-content: space-between;
+  width: 1.8rem;
+  height: 1.2rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+
+  span {
+    width: 100%;
+    height: 0.2rem;
+    background-color: $color-dark; // Cor dos traços do menu
+    border-radius: 0.2rem;
+  }
+}
+
+/* RESPONSIVIDADE MOBILE */
+@media (max-width: 768px) {
+  .Hamburger {
+    display: flex; // Aparece no mobile
+  }
+
+  .Nav {
+    display: none; // Escondido por padrão
+    width: 100%; // Ocupa a linha toda abaixo da logo
+    
+    ul {
+      flex-direction: column;
+      width: 100%;
+      padding: 1.5rem 0;
+      gap: 1.5rem;
+
+      li {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  }
+
+  /* Quando clicado, o menu aparece empurrando o conteúdo */
+  .NavOpen {
+    display: flex;
+  }
+}

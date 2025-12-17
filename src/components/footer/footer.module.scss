@@ -1,0 +1,130 @@
+// === VARIÁVEIS DE CORES ===
+$color-dark: #000000;        // Fundo preto total conforme o Figma
+$color-text-light: #ffffff;  // Branco
+$color-highlight: #50e3c2;   // Verde/Turquesa
+$color-border: #222;         // Linha divisória sutil
+$padding-desktop: 60px;      // Um pouco mais de respiro no topo
+
+.Footer {
+    background-color: $color-dark;
+    color: $color-text-light;
+    padding: $padding-desktop 0 20px 0;
+    font-family: 'Inter', 'Arial', sans-serif; // Inter é comum em designs do Figma
+}
+
+.FooterContent {
+    display: flex;
+    justify-content: space-between; 
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px 60px 40px;
+    border-bottom: 1px solid $color-border;
+    gap: 20px;
+}
+
+.Column {
+    h3 {
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin-bottom: 25px;
+        color: $color-text-light;
+    }
+
+    // Regra geral para parágrafos e links
+    p, a {
+        font-size: 0.9rem;
+        line-height: 1.5;
+        color: #b3b3b3; // Cinza claro para o texto não ser tão forte quanto o título
+        text-decoration: none;
+        transition: color 0.3s ease;
+
+        &:hover {
+            color: $color-highlight;
+        }
+    }
+
+    // Coluna do Logo (maior)
+    &:first-child {
+        flex-basis: 40%;
+        p { margin-top: 10px; max-width: 250px; }
+    }
+}
+
+// === ESTILO DO LOGO PRINCIPAL ===
+.LogoLink {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: $color-text-light !important;
+    margin-bottom: 15px;
+
+    img {
+        width: 32px; 
+        height: auto;
+    }
+}
+
+// === CONTATO COM ÍCONES (IMPORTANTE) ===
+.ContactItem {
+    display: flex;
+    align-items: center; // Alinha ícone e texto verticalmente
+    gap: 12px;           // Espaço entre ícone e texto
+    margin-bottom: 18px;
+
+    .ContactIcon {
+        width: 20px;     // Tamanho dos seus assets (email.png, etc)
+        height: 20px;
+        object-fit: contain;
+    }
+
+    a, p {
+        margin-bottom: 0; // Remove a margem inferior para não desalinharem
+        display: inline-block; 
+    }
+}
+
+// === REDES SOCIAIS ===
+.SocialLinks {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+// === DIREITOS AUTORAIS ===
+.Copyright {
+    text-align: center;
+    padding: 30px 20px;
+
+    p {
+        font-size: 0.75rem;
+        color: #666;
+    }
+}
+
+// === RESPONSIVIDADE ===
+@media (max-width: 768px) {
+    .FooterContent {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding-bottom: 40px;
+    }
+
+    .Column {
+        width: 100%;
+        margin-bottom: 40px;
+        
+        &:first-child p { margin: 10px auto; }
+    }
+
+    .ContactItem {
+        justify-content: center;
+    }
+
+    .LogoLink {
+        justify-content: center;
+    }
+}
